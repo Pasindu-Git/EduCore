@@ -1,0 +1,63 @@
+/* Make root fill the viewport */
+html, body, #root {
+  height: 100%;
+}
+body { margin: 0; }
+
+/* Shell: sidebar + main side-by-side */
+.app-shell {
+  display: flex;
+  min-height: 100dvh; /* full viewport height incl. mobile chrome */
+  width: 100%;
+}
+
+/* Keep your existing .sidebar styles; just ensure it doesn't shrink */
+.sidebar {
+  flex: 0 0 260px;   /* reserve the width so main can fill the rest */
+}
+
+/* Main area expands and scrolls content if needed */
+.main-content {
+  flex: 1 1 auto;
+  min-width: 0;          /* prevent overflow from long tables */
+  display: flex;
+  flex-direction: column;
+  background: #f7f8fb;   /* optional, matches your admin look */
+}
+
+/* Center your inner page content (optional) */
+.page {
+  width: 100%;
+  max-width: 1200px;     /* edit if you want wider/narrower */
+  margin: 0 auto;        /* centers horizontally */
+  padding: 24px;         /* page padding */
+}
+
+/* If you decide to use a fixed sidebar on desktop */
+@media (min-width: 769px) {
+  .sidebar.fixed {
+    position: fixed;
+    left: 0; top: 0;
+    height: 100dvh;
+  }
+  .sidebar.fixed + .main-content {
+    margin-left: 260px;  /* same width as sidebar */
+  }
+}
+
+/* Mobile behavior: sidebar slides over content (already in your CSS) */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;     /* your existing rule sets this */
+    left: 0; top: 0;
+    transform: translateX(0);
+    z-index: 1000;
+  }
+  .main-content {
+    margin-left: 0;      /* content uses full width on mobile */
+  }
+  /* If you implement a toggle, hide the sidebar off-canvas */
+  .sidebar.hidden {
+    transform: translateX(-100%);
+  }
+}

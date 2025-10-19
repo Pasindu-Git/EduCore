@@ -1,0 +1,173 @@
+/* ---------- Class Management: Add/Edit Form (Modal) ---------- */
+
+.class-management .modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(2, 6, 23, 0.55); /* soft dark overlay */
+  backdrop-filter: blur(3px);
+  animation: cm-fadeIn 180ms ease-out both;
+}
+
+@keyframes cm-fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.class-management .class-form {
+  width: 100%;
+  max-width: 640px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow:
+    0 10px 25px rgba(2, 6, 23, 0.25),
+    0 2px 6px rgba(2, 6, 23, 0.1);
+  padding: 22px 22px 18px;
+  border: 1px solid #e5e7eb; /* subtle border */
+  animation: cm-pop 220ms cubic-bezier(.2,.75,.25,1) both;
+}
+
+@keyframes cm-pop {
+  from { transform: translateY(6px) scale(.98); opacity: 0; }
+  to   { transform: translateY(0) scale(1);    opacity: 1; }
+}
+
+/* Form title */
+.class-management .class-form h2 {
+  margin: 0 0 12px 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a; /* slate-900 */
+  letter-spacing: .2px;
+}
+
+/* Field groups */
+.class-management .class-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.class-management .class-form label {
+  font-size: .92rem;
+  color: #334155; /* slate-600 */
+  font-weight: 600;
+}
+
+/* Inputs / Textareas / Selects */
+.class-management .class-form input[type="text"],
+.class-management .class-form textarea,
+.class-management .class-form select {
+  width: 100%;
+  border: 1px solid #d1d5db; /* gray-300 */
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: .98rem;
+  color: #111827; /* gray-900 */
+  outline: none;
+  transition: border-color 140ms ease, box-shadow 140ms ease, background 140ms ease;
+}
+
+.class-management .class-form textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+/* Focus states */
+.class-management .class-form input[type="text"]:focus,
+.class-management .class-form textarea:focus,
+.class-management .class-form select:focus {
+  border-color: #2563eb; /* blue-600 */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+}
+
+/* Invalid states (native required) */
+.class-management .class-form input:invalid {
+  border-color: #ef4444; /* red-500 */
+}
+
+/* Helper text */
+.class-management .class-form small {
+  color: #64748b; /* slate-500 */
+  font-size: .82rem;
+}
+
+/* Multi-select improvements */
+.class-management .class-form select[multiple] {
+  min-height: 140px;
+  padding: 8px;
+}
+
+.class-management .class-form select[multiple] option {
+  padding: 6px 8px;
+}
+
+/* Buttons row */
+.class-management .class-form .form-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+/* Primary action */
+.class-management .class-form .submit-btn {
+  appearance: none;
+  border: none;
+  background: #2563eb; /* blue-600 */
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: .95rem;
+  cursor: pointer;
+  transition: transform 80ms ease, box-shadow 140ms ease, background 140ms ease;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, .25);
+}
+
+.class-management .class-form .submit-btn:hover {
+  background: #1d4ed8; /* blue-700 */
+}
+
+.class-management .class-form .submit-btn:active {
+  transform: translateY(1px);
+}
+
+/* Secondary action */
+.class-management .class-form .cancel-btn {
+  appearance: none;
+  border: 1px solid #cbd5e1; /* slate-300 */
+  background: #f8fafc; /* slate-50 */
+  color: #0f172a; /* slate-900 */
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: .95rem;
+  cursor: pointer;
+  transition: background 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+
+.class-management .class-form .cancel-btn:hover {
+  background: #eef2f7;
+  border-color: #94a3b8; /* slate-400 */
+}
+
+/* Close on small screens: make form full-width */
+@media (max-width: 640px) {
+  .class-management .class-form {
+    max-width: 100%;
+    padding: 18px 16px 14px;
+    border-radius: 14px;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .class-management .modal { animation: none; }
+  .class-management .class-form { animation: none; }
+}

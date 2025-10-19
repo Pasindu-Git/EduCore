@@ -1,0 +1,16 @@
+const express = require("express");
+const router = express.Router();
+const ctrl = require("../Controllers/UserControllers");
+
+router.get("/", ctrl.getAllUsers);
+router.get("/:id", ctrl.getUserById);
+router.post("/", ctrl.createUser);
+router.put("/:id", ctrl.updateUser);
+router.delete("/:id", ctrl.deleteUser);
+router.post("/:id/disable", ctrl.disableUser);
+router.post("/:id/verify-email", ctrl.verifyEmail);
+
+router.post("/request-reset", ctrl.requestPasswordReset);
+router.post("/reset/:token", ctrl.resetPassword);
+
+module.exports = router;

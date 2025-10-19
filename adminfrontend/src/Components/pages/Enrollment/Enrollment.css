@@ -1,0 +1,136 @@
+/* Enrollment.css */
+
+/* General Page Styling */
+.enrollment-page {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.enrollment-page h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+/* Form Styling */
+.enrollment-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.enrollment-form select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  min-width: 200px;
+  transition: all 0.2s ease;
+}
+
+.enrollment-form select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+}
+
+.submit-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Table Styling */
+.enrollment-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.enrollment-table th, 
+.enrollment-table td {
+  text-align: left;
+  padding: 12px 15px;
+  font-size: 0.95rem;
+}
+
+.enrollment-table th {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: 600;
+}
+
+.enrollment-table tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s ease;
+}
+
+.enrollment-table tbody tr:hover {
+  background-color: #f1f7ff;
+}
+
+.enrollment-table select {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+/* Action Buttons */
+button.action {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+button.action.delete {
+  background-color: #ff4d4f;
+  color: #fff;
+}
+
+button.action.delete:hover {
+  background-color: #c70000;
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .enrollment-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .enrollment-form select, .submit-btn {
+    width: 90%;
+  }
+
+  .enrollment-table th, .enrollment-table td {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+}
