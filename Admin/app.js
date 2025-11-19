@@ -16,10 +16,11 @@ const authRoutes = require("./Routes/AuthRoutes");
 const analyticsRoutes = require("./Routes/AnalyticsRoutes");
 const analyticsStreamRoutes = require("./Routes/AnalyticsStreamRoutes");
 
+
 const app = express();
 
 // ✅ Hardcoded configuration
-const MONGO_URI = "mongodb+srv://admin:vMlVpfShLff2bKZ0@cluster0.v9tonu6.mongodb.net/";
+const MONGO_URI = "mongodb+srv://educore:Y83VKmWHDUWEUUxg@cluster0.eemsr57.mongodb.net/";
 const JWT_SECRET = "super_long_random_secret_string_change_me"; // <-- Use this in AuthController
 const PORT = 5000;
 
@@ -52,3 +53,6 @@ mongoose.connect(MONGO_URI)
     app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
   })
   .catch(err => console.error("❌ MongoDB connection error:", err));
+
+
+  
